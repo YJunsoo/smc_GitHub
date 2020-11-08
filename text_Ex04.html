@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<meta charset="utf-8">
+<html>
+    <head>
+        <title>input 3개</title>
+
+    </head>
+    <body>
+        <input type="text" id="FirstColor">
+        <input type="text" id="SecondColor">
+        <input type="text" id="ThirdColor">
+        <input type="button" value="change!"
+            onclick="backgroundColorChangeTocolorTextInput()">
+        <input type="button" value="reset!"
+            onclick="backgroundcolorChangeTocolorTextInput()"/>
+    <script>
+        function backgroundColorChangeTocolorTextInput() {
+            let typeColor_1 = document.getElementById("FirstColor");
+            let typeColor_2 = document.getElementById("SecondColor");
+            let typeColor_3 = document.getElementById("ThirdColor");
+
+            // if(value="reset!" === click) {
+            typeColor_1.value = "";
+            typeColor_2.value = "";
+            typeColor_3.value = "";
+            // }
+        }
+        </script>
+    </body>

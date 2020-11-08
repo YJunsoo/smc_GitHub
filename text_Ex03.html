@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<meta charset="utf-8">
+<html>
+    <head>
+        <title>사슴에 관하여</title>
+
+    </head>
+<body>
+    사슴에 관한 진실
+
+
+    
+</body>
+    <input type="text" id="color">
+    <input type="button" value="change!"
+        onclick="backgroundColorChangeTocolorTextInput()">
+<script>
+    function backgroundColorChangeTocolorTextInput() {
+        let typeColor = document.getElementById("color");
+        alert(typeColor.value);
+        if(typeColor.value === "red") {
+            document.body.style.background = typeColor.value;
+        } else if(typeColor.value === "yellow") {
+            document.body.style.background = typeColor.value;
+        } 
+        else if(typeColor.value === "blue") {
+            document.body.style.background = typeColor.value;
+        } 
+        else {
+            alert("실행되지 않는 색깔입니다.")
+        }
+        
+    }
+
+</script>
+    <a>
+        사슴은 아름다운 동물입니다.
+    </a>
+</html>
