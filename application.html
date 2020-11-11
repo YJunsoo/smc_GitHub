@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <title>AS 신청서</title>
+        
+    </head>
+    <body>
+        <p>이름</p>
+        <input type = "text" id="name" />
+        <br>
+        <p>이메일</p>
+        <input type = "text" id="email" />
+        <br>
+        <p>제목</p>
+        <input type = "text" id="title" />
+        <br>
+        <p>설명</p>
+        <input type = "text" id="explanation" />
+        <br>
+        <input type = "button" value="제출" onclick="submission()"/>
+        <input type = "button" value="고쳐쓰기" onclick="rewrite()"/>    
+
+        <script>
+            function submission() {
+                const name = document.getElementById("name").value;
+                if(name.length < 2 || name.length >= 10) {
+                    alert("이름은 2글자 에서 10글자 사이어야 합니다.");
+                }
+                const email = document.getElementById("email").value;
+                if(email.indexOf("@") !== email.lastIndexOf("@") ) {
+                    alert("@는 하나만 들어가야 합니다.")
+                }              
+                email.inclus
+
+            
+            const explanation = document.getElementById("explanation").value;
+                if(explanation.length <= 100) {
+                } else {
+                    alert("설명이 100글자 를 넘었습니다.")
+                }
+                alert("제출이 완료되었습니다.");
+
+            const title = document.getElementById("title").value;
+            if(!(title.includes("[") && title.includes("]"))) {
+                alert("[분류] 제목명 과 같은 포멧으로 작성하여야 합니다.");
+            }
+            }  
+
+            function getMidTitleOfTitle(title) {
+                isEnterMidTitleSection = false;
+                returnString = "";
+                for (const char of title) {
+                    if (char === "[") {
+                        isEnterMidTitleSection = true;
+                    }
+                    else if (char === "]"); {
+                        return returnString;
+                }
+                    else if (isEnterMidTitleSection) {
+                    returnString += char;
+                    }
+                }
+            }
+
+            function rewrite() {
+                for(const element of document.querySelectorAll('input[type=text]')) {
+                    element.value = '';
+                }
+            }
+            
+            
+        </script>
+    </body>
+</html>

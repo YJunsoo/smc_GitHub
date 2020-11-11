@@ -4,32 +4,67 @@
     <title> sing in site </title>
 <body>
     <h2>회원가입</h2>
-    <span>이름 : </span>
-    <input type = "text" id = "nameBox" placeholder="이름 2~10글자 사이"
-    maxlength="10" oninput="numberMaxlength(this);"/>
+    <p>이름 : </p>
+    <input type = "text" id = "name" />
     <br>
-    <span>아이디</span>
-    <input type = "text" id = "idBox" />
+    <p>아이디</p>
+    <input type = "text" id = "id" />
     <br>
-    <span>비밀번호</span>
-    <input type = "text" id = "pwBox" />
+    <p>비밀번호</p>
+    <input type = "text" id = "pw" />
     <br>
-    <span>비밀번호 확인</span>
-    <input type = "text" id = "RepwBox" />
+    <p>비밀번호 확인</p>
+    <input type = "text" id = "repw" />
     <br>
-    <span>주민등록번호</span>
-    <input type = "text" id = "first_ResidentBox" /> - 
-    <input type = "text" id = "second_ResidentBox" />
+    <p>주민등록번호</p>
+    <input type = "text" id = "first_Resident" /> - 
+    <input type = "text" id = "second_Resident" />
     <br>
     <input type = "button" value = "Yes" onclick="yesButton()"/>
-    <input type = "button" value = "No" onclick="noButton()"/>
+    <input type = "button" value = "reset" onclick="reset()"/>
     
     <script>
         function yesButton() {
-            if(nameBox )
-        }
-        function noButton() {
+            const name = document.getElementById("name").value;
+            if (2 < id.length || id.length <= 10) {
+                alert("이름은 2~10 글자 사이어야만 합니다.");
+                return false;
+            }
 
+            const pw = document.getElementById("pw").value;
+            if (!isIncludeSpecialCharacters(pw) || pw.length < 8) {
+                alert("비밀번호는 특수문자(?!@_) 중 하나를 포함하여야 하고, 8글자 이상이어야 합니다."); 
+                return false;
+            }
+
+            const preRegistrationNumber = document.getElementById("first_Resident").value;
+            const postRegistrationNumber = document.getElementById("second_Resident").value;
+
+            if (preRegistrationNumber.length !== 6 || postRegistrationNumber.length !== 1 
+            && isNaN(postRegistrationNumber) || isNaN(preRegistrationNumber)) { //★ (!==란? : === 이 같을때 !==이 아닐때(다를때))
+                alert("주민등록 번호의 첫번째 박스는 6글자여야 하고, 두번째 박스는 1글자여야 합니다.");
+                return false;
+            }
+
+            alert("회원가입에 성공하셨습니다!");
+            return true;
+        }
+
+        
+        function isIncludeSpecialCharacters(pw, special_characters) {    // ★
+            for(const sp_characters of sp_characters { 
+                if (password.includes(special_charater)) {
+                    return true;
+                }
+               
+            }
+            return pw.includes("@") || pw.includes("?") || pw.includes("_") || pw.includes("!");
+        }
+
+        function reset() {
+            for(const element of document.querySelectorAll('input[type = text]')) {
+                element.value = '';
+            }
         }
         
     </script>

@@ -1,30 +1,31 @@
 <html>
     <head>
-        <title id="smc">SMC School</title>
+        <title>SMC School</title>
     </head>
     <body>
         <div>
-            <a>you can do it!</a>
             <p>Input The TextBox</p>
-            <input type="text" id="A"/>
-            <input type="text" id="B"/>
-            <input type="text" id="C"/>
-            <input type="button" value="submit!" onclick="reset()"/>
+            <input type="text" id="A"/><br>
+            <input type="text" id="B"/><br>
+            <input type="text" id="C"/><br>
+            <input type="button" value="submit!" onclick="Change()">
         </div>
         <br>
         <div>
-            <a target="_blank">http://smc.sen.hs.kr/index.do</a>
+            <a target="_blank">http://smc.sen.hs.kr/index.do<a>
         </div>
         <script>
-            function reset() {
-            for (const elem of document.querySelectorAll("input[type=text]"))
-            { Text.value = ""; 
-            }
             // 1. SMC School 이라고 되어 있는 타이틀을 SMC 로 변경한다
             // 2. submit! 이라고 되어 있는 버튼을 누르면 모든 <input type="text"> 인 elements 에 value 를 "" 로 변경한다
             // 3. target 속성이 있는 <a> 태그의 backgroundColor 를 red 로 변경한다
-            document.querySelector("title");
-            document.querySelector("a[target]").style.backgroundColor = "red"; 
+            function Change() {
+                document.querySelector("title").innerText = "SMC";
+                let inputText = document.querySelectorAll("#A, #B, #C");
+                for(const i of inputText){
+                    i.value = "";
+                }
+
+                document.querySelector("a[target]").style.border = "10px solid red";
             }
         </script>
     </body>
