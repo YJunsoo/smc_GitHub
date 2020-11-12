@@ -92,3 +92,5 @@ update PRODUCT set STOCK = STOCK + 5
 WHERE price >= 100000;
 
 DELETE FROM PRODUCT WHERE ID=49;
+
+E:\20105(3)\GitHub\smc_GitHub
