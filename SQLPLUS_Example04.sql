@@ -17,7 +17,7 @@ HAVING SUM(PAYMENT_HISTORY.ORDER_PRICE) >= 1000000;
 -- 문제 2.
 -- 맴버중 평균 결제 금액이 10만원 이상인 맴버의 이름을 출력하세요
 -- member, payment_history 테이블 사용
--- 이름, 결제 금액을 출력하세요
+-- 이름, 결제 금액을 출력하세요 <<
 SELECT
     MEMBER.NAME, AVG(PAYMENT_HISTORY.ORDER_PRICE)
 FROM
@@ -136,3 +136,24 @@ GROUP BY
     TO_CHAR(ORDER_DATE, 'YYYYMMDD')
 ORDER BY
     TO_CHAR(ORDER_DATE, 'YYYYMMDD');
+
+-- 추가 문제 #1.
+-- 카탈로그 테이블에 CATEGORY_ID 를 추가로 생성해주시고
+-- NAME 기준으로 PRODUCT 테이블에 있는 데이터(카테고리 id)를 CATALOGUE 테이블에 추가해 주시고
+-- CATALOGUE 테이블에서 FK(외래키) 를 설정해주세요
+
+-- 추가 문제 #2
+-- PRODUCT 테이블에서 상품명, 상품 설명을 가져오게끔 합니다
+-- 만약 상품 설명이 10글자 이상인 경우 "탁월한 생산성을 위..." 와 같이 10글자 이후에는 ... 을 붙혀 주고
+-- 10글자 미만인 경우 모두 출력되게끔 합니다 (... 이 붙어서는 안됩니다)
+-- oracle IF(https://coding-factory.tistory.com/451), SUBSTR(https://docs.oracle.com/cd/B19306_01/server.102/b14200/functions162.htm)
+--, ||(https://dpdpwl.tistory.com/80) 연산자 사용 필요
+SELECT 
+    NAME, DESCRIPTION,
+    CASE WHEN LENGTH(DESCRIPTION) >= 10 THEN
+       SUBSTR(DESCRIPTION, 0, 10) || '...'
+    ELSE
+       DESCRIPTION
+    END
+FROM
+    PRODUCT;
